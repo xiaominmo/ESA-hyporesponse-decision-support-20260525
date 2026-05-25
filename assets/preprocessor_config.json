@@ -1,0 +1,197 @@
+{
+  "transformers": [
+    {
+      "name": "num",
+      "columns": [
+        "hb",
+        "esa_dose",
+        "dry_weight",
+        "dialysis_hours",
+        "age",
+        "sodium",
+        "dialysis_age",
+        "pre_sbp_mean",
+        "tsat_current",
+        "creatinine",
+        "ferritin_current",
+        "pth",
+        "pre_dbp_mean",
+        "idh_count"
+      ],
+      "steps": [
+        {
+          "imputer": {
+            "type": "SimpleImputer",
+            "strategy": "median",
+            "statistics_": [
+              111.0,
+              10000.0,
+              56.1,
+              4.0,
+              60.0,
+              137.5,
+              40.0,
+              142.66666666666666,
+              23.0,
+              977.05,
+              69.6,
+              226.0,
+              82.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "scaler": {
+            "type": "StandardScaler",
+            "mean_": [
+              109.77181964573269,
+              10158.29307568438,
+              56.819055287171224,
+              3.8837895866881373,
+              59.252549651100374,
+              137.4474074074074,
+              50.762748255501876,
+              142.49172481660403,
+              24.768011272141706,
+              985.000397208803,
+              135.90666129898014,
+              304.4399560118089,
+              82.04151010914296,
+              0.06655931293612453
+            ],
+            "scale_": [
+              18.108418941774026,
+              4626.863227248145,
+              10.189510081140753,
+              0.2428145546581343,
+              12.572018521262097,
+              4.084342783489442,
+              39.68458664171447,
+              14.70807304120205,
+              10.982155273476996,
+              379.78837081354914,
+              415.261730318887,
+              313.7964015725299,
+              9.337440815125248,
+              0.3639311257679053
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cat",
+      "columns": [
+        "esa_route",
+        "center_creator"
+      ],
+      "steps": [
+        {
+          "imputer": {
+            "type": "SimpleImputer",
+            "strategy": "most_frequent",
+            "statistics_": [
+              "静脉",
+              "河源市紫金县中医院血透中心"
+            ]
+          }
+        },
+        {
+          "encoder": {
+            "type": "OneHotEncoder",
+            "categories_": [
+              [
+                "皮下",
+                "静脉"
+              ],
+              [
+                "东源县船塘中心卫生院血透室",
+                "叶瑞山",
+                "和平西郊医院",
+                "徐育森",
+                "杏杏",
+                "河源中正血液透析中心",
+                "河源仁康血液透析中心有限公司",
+                "河源华信泰康医院血透室",
+                "河源友好医院",
+                "河源市东源县中医院血透室",
+                "河源市东源县人民医院血透室",
+                "河源市中医院血透中心",
+                "河源市人民医院血透中心",
+                "河源市和平县中医院新院血透室",
+                "河源市和平县人民医院血透中心",
+                "河源市深河人民医院（暨南大学附属第五医院）",
+                "河源市源城区东埔社区卫生服务中心（河源东埔医院）血透室",
+                "河源市源城区人民医院血透中心",
+                "河源市紫金县中医院血透中心",
+                "河源市紫金县人民医院血透中心",
+                "河源市连平县第二人民医院血透中心",
+                "河源市龙川县人民医院血透中心",
+                "河源德康医院",
+                "河源长安医院血透中心",
+                "源城宝芝林中医院",
+                "紫金县蓝塘中心卫生院",
+                "紫金昊辰血液透析中心",
+                "音乐",
+                "龙川县中医院血液透析室",
+                "龙川县妇幼保健计划生育服务中心",
+                "龙川民济血液透析中心"
+              ]
+            ],
+            "handle_unknown": "ignore"
+          }
+        }
+      ]
+    }
+  ],
+  "feature_names_out": [
+    "num__hb",
+    "num__esa_dose",
+    "num__dry_weight",
+    "num__dialysis_hours",
+    "num__age",
+    "num__sodium",
+    "num__dialysis_age",
+    "num__pre_sbp_mean",
+    "num__tsat_current",
+    "num__creatinine",
+    "num__ferritin_current",
+    "num__pth",
+    "num__pre_dbp_mean",
+    "num__idh_count",
+    "cat__esa_route_皮下",
+    "cat__esa_route_静脉",
+    "cat__center_creator_东源县船塘中心卫生院血透室",
+    "cat__center_creator_叶瑞山",
+    "cat__center_creator_和平西郊医院",
+    "cat__center_creator_徐育森",
+    "cat__center_creator_杏杏",
+    "cat__center_creator_河源中正血液透析中心",
+    "cat__center_creator_河源仁康血液透析中心有限公司",
+    "cat__center_creator_河源华信泰康医院血透室",
+    "cat__center_creator_河源友好医院",
+    "cat__center_creator_河源市东源县中医院血透室",
+    "cat__center_creator_河源市东源县人民医院血透室",
+    "cat__center_creator_河源市中医院血透中心",
+    "cat__center_creator_河源市人民医院血透中心",
+    "cat__center_creator_河源市和平县中医院新院血透室",
+    "cat__center_creator_河源市和平县人民医院血透中心",
+    "cat__center_creator_河源市深河人民医院（暨南大学附属第五医院）",
+    "cat__center_creator_河源市源城区东埔社区卫生服务中心（河源东埔医院）血透室",
+    "cat__center_creator_河源市源城区人民医院血透中心",
+    "cat__center_creator_河源市紫金县中医院血透中心",
+    "cat__center_creator_河源市紫金县人民医院血透中心",
+    "cat__center_creator_河源市连平县第二人民医院血透中心",
+    "cat__center_creator_河源市龙川县人民医院血透中心",
+    "cat__center_creator_河源德康医院",
+    "cat__center_creator_河源长安医院血透中心",
+    "cat__center_creator_源城宝芝林中医院",
+    "cat__center_creator_紫金县蓝塘中心卫生院",
+    "cat__center_creator_紫金昊辰血液透析中心",
+    "cat__center_creator_音乐",
+    "cat__center_creator_龙川县中医院血液透析室",
+    "cat__center_creator_龙川县妇幼保健计划生育服务中心",
+    "cat__center_creator_龙川民济血液透析中心"
+  ]
+}

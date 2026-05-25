@@ -1,0 +1,155 @@
+{
+  "source_dataset": "/home/user011/ESA/clinical_prediction_lasso_original05-20/analysis_dataset.csv",
+  "clinical_model": "/home/user011/ESA/clinical_prediction_lasso_original05-20/primary_model_ElasticNet_CatBoost.joblib",
+  "output_dir": "/home/user011/ESA/phenotype_clustering05-21",
+  "n_high_risk_rows": 2918,
+  "pred_risk_70th_percentile_cutoff": 0.1911979839581975,
+  "cluster_features": [
+    "age", "dialysis_age", "hb", "esa_dose", "dry_weight", "dialysis_hours",
+    "sodium", "creatinine", "log_pth_w99", "phosphorus", "log_crp_w99",
+    "log_ferritin_w99", "tsat_current", "pre_sbp_mean", "pre_dbp_mean", "idh_count"
+  ],
+  "raw_input_features": {
+    "age": "age",
+    "dialysis_age": "dialysis_age",
+    "hb": "hb",
+    "esa_dose": "esa_dose",
+    "dry_weight": "dry_weight",
+    "dialysis_hours": "dialysis_hours",
+    "sodium": "sodium",
+    "creatinine": "creatinine",
+    "log_pth_w99": "pth",
+    "phosphorus": "phosphorus",
+    "log_crp_w99": "crp",
+    "log_ferritin_w99": "ferritin_current",
+    "tsat_current": "tsat_current",
+    "pre_sbp_mean": "sbp",
+    "pre_dbp_mean": "dbp",
+    "idh_count": "idh_count"
+  },
+  "excluded_from_clustering": [
+    "esa_low_response", "next_hb", "next_eri", "delta_hb", "delta_eri",
+    "pred_risk_0521", "eri", "iron_use", "hif_use", "esa_route",
+    "center_creator", "patient_status"
+  ],
+  "preprocessing": "Median imputation + StandardScaler on 2024 high-risk cohort",
+  "crp_p99_cap": 91.27399999999999,
+  "k_evaluated": [
+    {
+      "k": 2,
+      "inertia": 16495.74,
+      "silhouette": 0.0830,
+      "min_cluster_size": 557,
+      "max_cluster_size": 561,
+      "passes_min_cluster_size": true,
+      "selected_primary": true
+    }
+  ],
+  "min_cluster_size_required": 56,
+  "selected_k": 2,
+  "selection_rule": "Highest silhouette among KMeans k=2..6 candidates passing minimum cluster size rule",
+  "cluster_name_map": {
+    "0": "Mineral-metabolism phenotype",
+    "1": "Older short-vintage phenotype"
+  },
+  "centroids_scaled": [
+    [
+      -0.550757, 0.336969, 0.129112, 0.122518, 0.282588, 0.390823,
+      -0.04879, 0.422137, 0.269872, 0.312689, -0.107473, -0.03795,
+      0.157663, 0.249847, 0.410223, -0.145933
+    ],
+    [
+      0.518247, -0.317079, -0.121491, -0.115286, -0.265908, -0.367754,
+      0.04591, -0.397219, -0.253942, -0.294232, 0.101129, 0.03571,
+      -0.148356, -0.235099, -0.386009, 0.137319
+    ]
+  ],
+  "stability_ari_median": 0.6478,
+  "stability_ari_min": 0.3672,
+  "imputation_values": {
+    "age": 64.0,
+    "dialysis_age": 37.0,
+    "hb": 95.0,
+    "esa_dose": 10000.0,
+    "dry_weight": 52.0,
+    "dialysis_hours": 4.0,
+    "sodium": 136.6,
+    "creatinine": 886.0,
+    "log_pth_w99": 5.357528782019898,
+    "phosphorus": 1.88,
+    "log_crp_w99": 1.308332819650179,
+    "log_ferritin_w99": 4.175924549214524,
+    "tsat_current": 19.0,
+    "pre_sbp_mean": 142.66666666666666,
+    "pre_dbp_mean": 80.66666666666667,
+    "idh_count": 0.0
+  },
+  "scaler_mean": {
+    "age": 62.559033989266545,
+    "dialysis_age": 49.62701252236136,
+    "hb": 94.99892665474061,
+    "esa_dose": 13136.225402504473,
+    "dry_weight": 52.66967799642219,
+    "dialysis_hours": 3.828264758497317,
+    "sodium": 136.64525939177105,
+    "creatinine": 904.442969588551,
+    "log_pth_w99": 5.249416995999058,
+    "phosphorus": 1.9904472271914129,
+    "log_crp_w99": 1.4361018725820127,
+    "log_ferritin_w99": 4.211789830831895,
+    "tsat_current": 21.33984794275492,
+    "pre_sbp_mean": 143.0371198568873,
+    "pre_dbp_mean": 80.58542039355993,
+    "idh_count": 0.06440071556350627
+  },
+  "scaler_scale": {
+    "age": 13.399850603815313,
+    "dialysis_age": 43.10817055632978,
+    "hb": 16.93916502980486,
+    "esa_dose": 6327.357958887058,
+    "dry_weight": 9.348450460604777,
+    "dialysis_hours": 0.2930727251223328,
+    "sodium": 3.7807828120027245,
+    "creatinine": 363.9828432410368,
+    "log_pth_w99": 1.0299584475326184,
+    "phosphorus": 0.9031139611485755,
+    "log_crp_w99": 0.9304924414812191,
+    "log_ferritin_w99": 1.0388821382483704,
+    "tsat_current": 11.200317801288769,
+    "pre_sbp_mean": 14.085235061001237,
+    "pre_dbp_mean": 8.746486537536965,
+    "idh_count": 0.3401608959502196
+  },
+  "model_feature_count": 16,
+  "additional_outputs_20260521": {
+    "figures": [
+      "Figure_1_high_risk_cohort_definition.png",
+      "Figure_2_cluster_selection_metrics.png",
+      "Figure_3_pca_umap_distribution.png",
+      "Figure_4_standardized_clustering_feature_profiles.png",
+      "Figure_5_key_clinical_feature_distributions.png",
+      "Figure_6_outcomes_and_treatment_patterns.png",
+      "Figure_7_temporal_validation_profiles.png",
+      "Figure_8_patient_level_bootstrap_stability.png",
+      "Figure_9_sensitivity_analysis_summary.png"
+    ],
+    "tables": [
+      "Table_1_high_risk_cohort_definition.xlsx",
+      "Table_2_cluster_selection_metrics.xlsx",
+      "Table_3_patient_level_bootstrap_stability.xlsx",
+      "Table_4_phenotype_counts.xlsx",
+      "Table_5_clustering_feature_profiles.xlsx",
+      "Table_6_nonclustering_outcomes_treatments.xlsx",
+      "Table_7_sensitivity_analyses.xlsx",
+      "Table_8_phenotype_naming_rules.xlsx"
+    ],
+    "temporal_validation": {
+      "phenotype_order": [
+        "P1: Older short-vintage phenotype",
+        "P2: Mineral-metabolism phenotype"
+      ],
+      "bootstrap_ari_median": 0.6478,
+      "bootstrap_ari_iqr": [0.5893, 0.7287]
+    }
+  }
+}

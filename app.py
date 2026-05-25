@@ -690,8 +690,8 @@ elif page == "About This System":
     - **Decision Engine:** Multi-tier recommendation engine integrating KDIGO/KDOQI guidelines
 
     #### Two Phenotypes
-    1. **Mineral-metabolism phenotype** - Longer dialysis vintage, higher PTH, higher phosphorus, higher creatinine, mineral metabolism burden
-    2. **Older short-vintage phenotype** - Older age, shorter dialysis vintage, lower body weight, lower blood pressure, higher IDH count
+    1. **Long-Vintage Mineral-Metabolic Phenotype** - Longer dialysis vintage, higher PTH, higher phosphorus, higher creatinine, mineral metabolism burden
+    2. **Advanced-Age Inflammatory-Nutritional Phenotype** - Older age, shorter dialysis vintage, lower body weight, lower blood pressure, higher IDH count
 
     #### Model Performance (2025 temporal validation, primary ElasticNet/CatBoost)
     | Metric | Value |
